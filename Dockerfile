@@ -6,7 +6,7 @@ LABEL Maintainer="Ansley Leung" \
       Version="1.0"
 
 # if you want use APK mirror then uncomment, modify the mirror address to which you favor
-RUN sed -i 's|http://dl-cdn.alpinelinux.org|https://mirrors.aliyun.com|g' /etc/apk/repositories
+# RUN sed -i 's|http://dl-cdn.alpinelinux.org|https://mirrors.aliyun.com|g' /etc/apk/repositories
 
 RUN apk update \
     && apk upgrade \
