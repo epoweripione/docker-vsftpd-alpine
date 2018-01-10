@@ -20,7 +20,7 @@ docker-compose up -d
 ```
 
 ## Something to do
-`docker exec -i -t vsftpd_vsftpd_1 sh`
+`docker exec -it <Container ID> sh`
 
 **Set `admin` password**
 
