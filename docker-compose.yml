@@ -1,0 +1,17 @@
+version: "3.3"
+services:
+  vsftpd:
+    build: .
+    ports:
+      - "20:20"
+      - "21:21"
+      - "21100-21110:21100-21110"
+    volumes:
+      - ~/ftp/:/home/ftp/:rw
+      - ~/ftp/log/:/var/log/vsftpd/:rw
+    environment:
+      - FTP_USER=admin
+      - FTP_PASS=notneedhere
+      - PASV_ADDRESS=127.0.0.1
+      - PASV_MIN_PORT=21100
+      - PASV_MAX_PORT=21110
