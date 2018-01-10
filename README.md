@@ -3,7 +3,9 @@ vsftpd Docker image build script based on Alpine
 
 Supports passive mode and virtual users.
 
-## vsftpd.conf in `/etc/vsftpd/`
+## vsftpd.conf
+
+`/etc/vsftpd/vsftpd.conf`
 
 ## How to run
 
@@ -22,6 +24,8 @@ docker-compose up -d
 
 **Set `admin` password**
 
+Replace `AdminPWD` to what you favor.
+
 ```
 echo "admin:$(openssl passwd -1 AdminPWD)" >> /etc/vsftpd/virtual_users
 cat > /etc/vsftpd/vsftpd_user_conf/admin <<EOF
@@ -36,7 +40,7 @@ EOF
 
 **Add Virtual FTP User**
 
-Replace `myuser` and `mypass` to what you want `<user name>` and `<user password>`.
+Replace `myuser` and `mypass` to what you want.
 
 User's root path, upload and write permission in file */etc/vsftpd/vsftpd_user_conf/`<username>`*, you can change them for security reason.
 
@@ -52,3 +56,7 @@ anon_other_write_enable=YES
 local_root=/home/ftp/myuser
 EOF
 ```
+
+**quit to Host**
+
+`exit`
