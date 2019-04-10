@@ -3,7 +3,7 @@ FROM alpine:latest
 LABEL Maintainer="Ansley Leung" \
       Description="vsftpd Docker image based on Alpine. Supports passive mode and virtual users." \
       License="MIT License" \
-      Version="1.15.10"
+      Version="2.1"
 
 # if you want use APK mirror then uncomment, modify the mirror address to which you favor
 # RUN sed -i 's|http://dl-cdn.alpinelinux.org|https://mirrors.aliyun.com|g' /etc/apk/repositories
