@@ -57,6 +57,10 @@ local_root=/home/ftp/myuser
 EOF
 ```
 
+**fix permission**
+
+`chown -R virtual:virtual /home/ftp/`
+
 **quit to Host**
 
 `exit`
