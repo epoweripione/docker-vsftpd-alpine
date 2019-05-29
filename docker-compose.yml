@@ -1,17 +1,19 @@
-version: "3.3"
+version: "3.5"
 services:
   vsftpd:
-    build: .
+    image: siyuwuxin/vsftpd-alpine:latest
+    expose:
+      - "30022-30100"
     ports:
-      - "20:20"
-      - "21:21"
-      - "21100-21110:21100-21110"
+      - "30020:20"
+      - "30021:21"
+      - "30022-30100:30022-30100"
     volumes:
-      - ~/ftp/:/home/ftp/:rw
-      - ~/ftp/log/:/var/log/vsftpd/:rw
+      - ./ftp/:/home/ftp/:rw
+      - ./logs/vsftpd/:/var/log/vsftpd/:rw
     environment:
       - FTP_USER=admin
       - FTP_PASS=notneedhere
       - PASV_ADDRESS=127.0.0.1
-      - PASV_MIN_PORT=21100
-      - PASV_MAX_PORT=21110
+      - PASV_MIN_PORT=30022
+      - PASV_MAX_PORT=30100
