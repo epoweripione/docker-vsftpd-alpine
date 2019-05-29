@@ -12,7 +12,8 @@ fi
 
 # Set passive mode parameters:
 if [ "$PASV_ADDRESS" = "**IPv4**" ]; then
-  export PASV_ADDRESS=$(/sbin/ip route|awk '/default/ { print $3 }')
+  # export PASV_ADDRESS=$(/sbin/ip route|awk '/default/ { print $3 }')
+  export PASV_ADDRESS=$(curl -s -4 --connect-timeout 5 --max-time 10 ifconfig.co)
 fi
 
 echo -e "\n## passive mode port address" >> /etc/vsftpd/vsftpd.conf
