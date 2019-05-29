@@ -14,6 +14,6 @@ services:
     environment:
       - FTP_USER=admin
       - FTP_PASS=notneedhere
-      - PASV_ADDRESS=127.0.0.1
+      - PASV_ADDRESS=**IPv4**
       - PASV_MIN_PORT=30022
       - PASV_MAX_PORT=30100
