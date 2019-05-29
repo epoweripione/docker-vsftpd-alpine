@@ -21,6 +21,14 @@ echo "pasv_max_port=$PASV_MAX_PORT" >> /etc/vsftpd/vsftpd.conf
 echo "pasv_min_port=$PASV_MIN_PORT" >> /etc/vsftpd/vsftpd.conf
 echo "pasv_address=$PASV_ADDRESS" >> /etc/vsftpd/vsftpd.conf
 
+# Execute add ftp user script
+if [ -n "$AUTO_ADD_USER" ]; then
+	if [ -s "/etc/vsftpd/vsftpd-add-ftp-user.sh" ]; then
+		chmod +x /etc/vsftpd/vsftpd-add-ftp-user.sh
+    /etc/vsftpd/vsftpd-add-ftp-user.sh
+	fi
+fi
+
 # fix ftp home permissions
 chown -R virtual:virtual /home/ftp/
 
