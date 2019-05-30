@@ -3,7 +3,7 @@ FROM alpine:latest
 LABEL Maintainer="Ansley Leung" \
       Description="vsftpd Docker image based on Alpine. Supports passive mode and virtual users." \
       License="MIT License" \
-      Version="2.2"
+      Version="3.0.3"
 
 # if you want use APK mirror then uncomment, modify the mirror address to which you favor
 # RUN sed -i 's|http://dl-cdn.alpinelinux.org|https://mirrors.aliyun.com|g' /etc/apk/repositories
@@ -31,15 +31,15 @@ ENV PASV_ADDRESS **IPv4**
 ENV PASV_MIN_PORT 21100
 ENV PASV_MAX_PORT 21110
 
-RUN set -ex \
-    && echo -e "\n## more option" >> /etc/vsftpd/vsftpd.conf \
-    && echo "ftpd_banner=Welcome to FTP Server" >> /etc/vsftpd/vsftpd.conf \
-    && echo "dirmessage_enable=YES" >> /etc/vsftpd/vsftpd.conf \
-    && echo "max_clients=100" >> /etc/vsftpd/vsftpd.conf \
-    && echo "max_per_ip=20" >> /etc/vsftpd/vsftpd.conf \
-    && echo "local_umask=022" >> /etc/vsftpd/vsftpd.conf \
-    && echo "passwd_chroot_enable=yes" >> /etc/vsftpd/vsftpd.conf \
-    && echo "listen_ipv6=NO" >> /etc/vsftpd/vsftpd.conf
+# RUN set -ex \
+#     && echo -e "\n## more option" >> /etc/vsftpd/vsftpd.conf \
+#     && echo "ftpd_banner=Welcome to FTP Server" >> /etc/vsftpd/vsftpd.conf \
+#     && echo "dirmessage_enable=YES" >> /etc/vsftpd/vsftpd.conf \
+#     && echo "max_clients=100" >> /etc/vsftpd/vsftpd.conf \
+#     && echo "max_per_ip=20" >> /etc/vsftpd/vsftpd.conf \
+#     && echo "local_umask=022" >> /etc/vsftpd/vsftpd.conf \
+#     && echo "passwd_chroot_enable=yes" >> /etc/vsftpd/vsftpd.conf \
+#     && echo "listen_ipv6=NO" >> /etc/vsftpd/vsftpd.conf
 
 COPY vsftpd.conf /etc/vsftpd/
 COPY vsftpd.sh /usr/sbin/

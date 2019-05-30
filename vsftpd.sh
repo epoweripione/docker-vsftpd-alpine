@@ -24,7 +24,7 @@ if [ -z "$(grep "pasv_max_port=" /etc/vsftpd/vsftpd.conf)" ]; then
 fi
 
 # Execute add ftp user script
-if [ -n "$AUTO_ADD_USER" ] && [ ! -s "/etc/vsftpd/virtual_users" ]; then
+if [ -n "$ADD_FTP_USER_SCRIPT" ] && [ ! -s "/etc/vsftpd/virtual_users" ]; then
   if [ -s "/etc/vsftpd/vsftpd-add-ftp-user.sh" ]; then
     chmod +x /etc/vsftpd/vsftpd-add-ftp-user.sh
     /etc/vsftpd/vsftpd-add-ftp-user.sh
