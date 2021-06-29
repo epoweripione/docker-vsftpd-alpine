@@ -1,4 +1,4 @@
-FROM alpine:3.12
+FROM alpine:3.14
 
 LABEL Maintainer="Ansley Leung" \
       Description="vsftpd Docker image based on Alpine. Supports passive mode and virtual users." \
